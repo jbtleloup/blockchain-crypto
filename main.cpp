@@ -1,63 +1,40 @@
-#include "User.h"
+#include "NamespaceDisplay.h"
 
-bool already_made = false;
+void init_user(User newUser) {
+    string name;
+    double money;
 
-void menu()
-{
+    //does user want to deposit money
+    char choice;
 
-    User newUser = User();
+    display::registration();
+    cin >> name;
 
-    if (!already_made)
+    display::init_wallet();
+    cin >> choice;
+
+    if (choice == 'y')
     {
-        string name;
-        double money;
-
-        //does user want to deposit money
-        char choice;
-
-        cout << "Welcome! Before starting you must register.\n";
-        cout << "Please enter your username:";
-        cin >> name;
-
-        cout << "Do you want to deposit money immediately (y/n)? ";
-        cin >> choice;
-
-        if (choice == 'y')
-        {
-            cout << "Enter the amount you want to deposit: ";
-            cin >> money;
-            newUser.setName(name);
-            newUser.setWallet(money);
-        }
-        else
-            newUser.setName(name);
-
-        already_made = true;
+        display::deposit_amount();
+        cin >> money;
+        newUser.setName(name);
+        newUser.setWallet(money);
     }
+    else
+        newUser.setName(name);
+
+}
+
+
+void menu(User newUser)
+{
 
     int option = 0;
 
     do
     {
-        cout << " Main Menu:\n";
-        cout << "\t 1.Mine a new Block\n";
-        cout << "\t 2.Get Last Block Data\n";
-        cout << "\t 3.Check Keys\n";
-        cout << "\t 4.Check Wallet\n";
-        cout << "\t 5.Exit\n";
+        display::main_menu();
         cin >> option;
-
-        /*if (option == 1)
-            //newUser.chain.AddBlock();
-            break;
-        else if (option == 2)
-            newUser.chain.GetLastBlock().showAll();
-        else if (option == 3)
-            cout << "Private Key:\n" << newUser.getPrivateKey() << endl << endl
-                 << "Public Key:\n" << newUser.getPublicKey() << endl << endl
-                 << "Address:\n" << newUser.getCC_Address() << endl;
-        else if (option == 4)
-            cout << "Amount in Wallet: " << newUser.getWallet() << endl;*/
 
         switch(option){
             case 1:
@@ -97,7 +74,15 @@ int main() {
       cout << "Mining block 3..." << endl;
       bChain.AddBlock(Block(3, "Block 3 Data"));*/
 
-    menu();
+
+    //create first user
+    User user1;
+
+    //initialisation, name and wallet
+    init_user(user1);
+
+    //display menu
+    menu(user1);
 
 
     return 0;

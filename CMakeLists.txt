@@ -17,4 +17,4 @@ add_executable(Final
         sha256.cpp
         sha256.h
         User.cpp
-        User.h)
+        User.h NamespaceDisplay.h)
