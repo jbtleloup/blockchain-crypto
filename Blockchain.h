@@ -18,7 +18,7 @@ public:
 
     void AddBlock(Block bNew);
 
-	Block GetLastBlock();
+    Block GetLastBlock();
 
 private:
     uint32_t _nDifficulty;

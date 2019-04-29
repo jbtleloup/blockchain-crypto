@@ -30,6 +30,18 @@ namespace display {
         cout << "\t 4.Check Wallet\n";
         cout << "\t 5.Exit\n";
     }
+
+    void transaction_amount() {
+        cout << "How much do you want to send?" << endl;
+    }
+
+    void receiver_address() {
+        cout << "Enter address of receiver" << endl;
+    }
+
+    void error_address() {
+        cout << "Address incorrect" << endl;
+    }
 }
 
 

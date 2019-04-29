@@ -29,7 +29,7 @@ string Block::GetHash() {
 }
 
 void Block::MineBlock(uint32_t nDifficulty) {
-	char cstr[nDifficulty+1];
+    char cstr[nDifficulty + 1];
     for (uint32_t i = 0; i < nDifficulty; ++i) {
         cstr[i] = '0';
     }
@@ -52,18 +52,16 @@ inline string Block::_CalculateHash() const {
     return sha256(ss.str());
 }
 
-void Block::showAll()
-{
-	cout << "Index: " << _nIndex << endl
-		<< "Receiver: " << _receiver << endl
-		<< "Sender: " << _sender << endl
-		<< "Nonce: " << _nNonce << endl
-		<< "Data: " << _sData << endl
-		<< "Hash: " << _sHash << endl
-		<< "Timestamp: " << _tTime << endl;
+void Block::showAll() {
+    cout << "Index: " << _nIndex << endl
+         << "Receiver: " << _receiver << endl
+         << "Sender: " << _sender << endl
+         << "Nonce: " << _nNonce << endl
+         << "Data: " << _sData << endl
+         << "Hash: " << _sHash << endl
+         << "Timestamp: " << _tTime << endl;
 }
 
-uint32_t Block::getIndex()
-{
-	return _nIndex;
+uint32_t Block::getIndex() {
+    return _nIndex;
 }

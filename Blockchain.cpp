@@ -6,7 +6,7 @@
 
 Blockchain::Blockchain() {
     _vChain.emplace_back(Block(0, "Genesis Block", std::string(), std::string()));
-    _nDifficulty = 3;
+    _nDifficulty = 5;
 }
 
 void Blockchain::AddBlock(Block bNew) {
@@ -15,9 +15,8 @@ void Blockchain::AddBlock(Block bNew) {
     _vChain.push_back(bNew);
 }
 
-Block Blockchain::GetLastBlock()
-{
-	return _GetLastBlock();
+Block Blockchain::GetLastBlock() {
+    return _GetLastBlock();
 }
 
 Block Blockchain::_GetLastBlock() const {

@@ -24,9 +24,9 @@ public:
 
     time_t get_tTime() const;
 
-	uint32_t getIndex();
+    uint32_t getIndex();
 
-	void showAll();
+    void showAll();
 
     const string &get_sender() const;
 

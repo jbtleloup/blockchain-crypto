@@ -1,37 +1,38 @@
 #include "Blockchain.h"
 #include "Cryptography.h"
 #include "sha256.h"
+
 class User {
 private:
-	string name;
-	string private_key;
-	string public_key;
-	string CC_Address; //Cryptocurrency address
-	double wallet;
+    string name;
+    string private_key;
+    string public_key;
+    string CC_Address; //Cryptocurrency address
+    double wallet;
 
 public:
     static Blockchain chain;
 
-	User();
+    User();
 
-	User(string);
+    User(string);
 
-	User(string, double);
+    User(string, double);
 
-	void setName(string);
+    void setName(string);
 
-	void setKeys();
+    void setKeys();
 
-	void setWallet(double);
+    void setWallet(double);
 
-	void transact(const string &receiver, const int &amount);
+    void transact(const string &receiver, const int &amount);
 
-	string getPrivateKey();
+    string getPrivateKey();
 
-	string getPublicKey();
+    string getPublicKey();
 
-	string getCC_Address();
+    string getCC_Address();
 
-	double getWallet();
+    double getWallet();
 
 };

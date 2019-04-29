@@ -1,4 +1,22 @@
 #include "NamespaceDisplay.h"
+#include <thread>
+
+vector<User> users;
+static const string alpha = "abcdefghijklmonpqrstuvwxyz";
+static const int num_threads = 10;
+static const int nb_users = 10;
+static const int MAX_ITERATIONS = 10000;
+mutex m;
+
+const bool verify_address(const string &address) {
+    bool exist = false;
+    for (auto &i : users) {
+        if (i.getCC_Address() == address) {
+            exist = true;
+        }
+    }
+    return exist;
+}
 
 void init_user(User newUser) {
     string name;
@@ -13,37 +31,44 @@ void init_user(User newUser) {
     display::init_wallet();
     cin >> choice;
 
-    if (choice == 'y')
-    {
+    if (choice == 'y') {
         display::deposit_amount();
         cin >> money;
         newUser.setName(name);
         newUser.setWallet(money);
-    }
-    else
+    } else
         newUser.setName(name);
 
 }
 
-void menu(User newUser)
-{
+void menu(User newUser) {
 
     int option = 0;
 
-    do
-    {
+    do {
         display::main_menu();
         cin >> option;
 
-        switch(option){
+        switch (option) {
             case 1: {
                 //TODO user.send()
-                int amount=0;
-                newUser.transact(std::string(),amount);
+                int amount;
+                string receiver_address;
+
+                display::transaction_amount();
+                cin >> amount;
+
+                display::receiver_address();
+                cin >> receiver_address;
+
+                if (verify_address(receiver_address))
+                    newUser.transact(receiver_address, amount);
+                else
+                    display::error_address();
                 break;
             }
             case 2:
-                newUser.chain.GetLastBlock().showAll();
+                User::chain.GetLastBlock().showAll();
                 break;
             case 3:
                 cout << "Private Key:\n" << newUser.getPrivateKey() << endl << endl
@@ -54,39 +79,88 @@ void menu(User newUser)
                 cout << "Amount in Wallet: " << newUser.getWallet() << endl;
                 break;
             default:
-                cout<<"Action not recognized"<<endl;
+                cout << "Action not recognized" << endl;
                 break;
         }
 
     } while (option != 5);
 }
 
+void threadSleep(int tid) {
+
+    m.lock();
+    std::cout << "thread " << tid << " sleeping...\n";
+
+    std::this_thread::sleep_for(std::chrono::milliseconds(10));
+    m.unlock();
+}
 
 int main() {
 
 
-    /*  Blockchain bChain = Blockchain();
-
-      cout << "Mining block 1..." << endl;
-      bChain.AddBlock(Block(1, "Block 1 Data"));
-
-      cout << "Mining block 2..." << endl;
-      bChain.AddBlock(Block(2, "Block 2 Data"));
-
-      cout << "Mining block 3..." << endl;
-      bChain.AddBlock(Block(3, "Block 3 Data"));*/
-
+    //reserve the space
+    users.reserve(nb_users);
 
     //create first user
-    User user1;
-    User user2=User("John Doe", 123);
+    /*User user1;
+    users.push_back(user1);
+    User user2 = User("John Doe", 123);
+    users.push_back(user2);*/
 
     //initialisation, name and wallet
-    init_user(user1);
+    //init_user(user1);
 
     //display menu
-    menu(user1);
+    //menu(user1);
 
+    //initialize users for threads
+    const int MAX_NAME_LENGTH = 7;
+    const int MAX_WALLET_AMOUNT = 500;
+    for (int i = 0; i < nb_users; i++) {
+        string user_name;
+        int name_length = rand() % MAX_NAME_LENGTH + 1;
+        for (int j = 0; j < name_length; j++) {
+            int index = rand() % alpha.size();
+            char letter = alpha[index];
+            user_name += letter;
+        }
+        cout<<user_name<<endl;
+        double wallet = rand() % MAX_WALLET_AMOUNT;
+        users.emplace_back(User(user_name,wallet));
+    }
+
+    thread t[num_threads];
+    srand(time(NULL));
+    int it = 0;
+    int sleeping_thread = 0;
+
+    while (it < MAX_ITERATIONS) {
+
+        sleeping_thread = rand() % num_threads + 1;
+
+        //Launch a group of threads
+        for (unsigned i = 0; i < num_threads; ++i) {
+
+            if (i == sleeping_thread) {
+                t[i] = thread(threadSleep, i);
+            } else {
+                User temp = users.at(i);
+
+                int index_receiver = rand() % nb_users;
+                string address_receiver = users.at((unsigned)index_receiver).getCC_Address();
+                int amount = rand() % (int)round(temp.getWallet());
+                t[i] = thread(&User::transact,temp,address_receiver,amount);
+            }
+        }
+
+        cout << "Launched from the main\n";
+
+        //Join the threads with the main thread, wait for the end of the execution to quit
+        for (int i = 0; i < num_threads; ++i) {
+            t[i].join();
+        }
+        it++;
+    }
 
     return 0;
 }
