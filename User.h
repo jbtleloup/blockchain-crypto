@@ -10,7 +10,7 @@ private:
 	double wallet;
 
 public:
-	Blockchain chain;
+    static Blockchain chain;
 
 	User();
 
@@ -23,6 +23,8 @@ public:
 	void setKeys();
 
 	void setWallet(double);
+
+	void transact(const string &receiver, const int &amount);
 
 	string getPrivateKey();
 

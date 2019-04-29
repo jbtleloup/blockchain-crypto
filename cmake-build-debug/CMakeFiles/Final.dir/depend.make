@@ -26,6 +26,7 @@ CMakeFiles/Final.dir/main.cpp.o: ../Block.h
 CMakeFiles/Final.dir/main.cpp.o: ../Blockchain.h
 CMakeFiles/Final.dir/main.cpp.o: ../Cryptography.h
 CMakeFiles/Final.dir/main.cpp.o: ../Helper.h
+CMakeFiles/Final.dir/main.cpp.o: ../NamespaceDisplay.h
 CMakeFiles/Final.dir/main.cpp.o: ../User.h
 CMakeFiles/Final.dir/main.cpp.o: ../main.cpp
 CMakeFiles/Final.dir/main.cpp.o: ../sha256.h

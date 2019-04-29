@@ -6,9 +6,18 @@
 #include "Block.h"
 
 
-Block::Block(uint32_t nIndexIn, const string &sDataIn) : _nIndex(nIndexIn), _sData(sDataIn) {
+Block::Block(uint32_t nIndexIn, const string &sDataIn, const string &receiver, const string &sender)
+        : _nIndex(nIndexIn), _sData(sDataIn), _receiver(receiver), _sender(sender) {
     _nNonce = -1;
     _tTime = time(nullptr);
+}
+
+const string &Block::get_sender() const {
+    return _sender;
+}
+
+const string &Block::get_receiver() const {
+    return _receiver;
 }
 
 time_t Block::get_tTime() const {
@@ -38,7 +47,7 @@ void Block::MineBlock(uint32_t nDifficulty) {
 
 inline string Block::_CalculateHash() const {
     stringstream ss;
-    ss << _nIndex << _tTime << _sData << _nNonce << sPrevHash;
+    ss << _nIndex << _tTime << _sData << _receiver << _sender << _nNonce << sPrevHash;
 
     return sha256(ss.str());
 }
@@ -46,6 +55,8 @@ inline string Block::_CalculateHash() const {
 void Block::showAll()
 {
 	cout << "Index: " << _nIndex << endl
+		<< "Receiver: " << _receiver << endl
+		<< "Sender: " << _sender << endl
 		<< "Nonce: " << _nNonce << endl
 		<< "Data: " << _sData << endl
 		<< "Hash: " << _sHash << endl

@@ -25,7 +25,6 @@ void init_user(User newUser) {
 
 }
 
-
 void menu(User newUser)
 {
 
@@ -37,9 +36,12 @@ void menu(User newUser)
         cin >> option;
 
         switch(option){
-            case 1:
-                //newUser.chain.AddBlock();
+            case 1: {
+                //TODO user.send()
+                int amount=0;
+                newUser.transact(std::string(),amount);
                 break;
+            }
             case 2:
                 newUser.chain.GetLastBlock().showAll();
                 break;
@@ -77,6 +79,7 @@ int main() {
 
     //create first user
     User user1;
+    User user2=User("John Doe", 123);
 
     //initialisation, name and wallet
     init_user(user1);

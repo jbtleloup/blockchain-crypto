@@ -6,6 +6,12 @@
 
 #IncludeRegexTransform: 
 
+/Users/jeanbaptistetamasleloup/Documents/Cours/CPMT/Final/Block.cpp
+sstream
+-
+Block.h
+/Users/jeanbaptistetamasleloup/Documents/Cours/CPMT/Final/Block.h
+
 /Users/jeanbaptistetamasleloup/Documents/Cours/CPMT/Final/Block.h
 cstdint
 -
@@ -16,6 +22,10 @@ time.h
 sha256.h
 /Users/jeanbaptistetamasleloup/Documents/Cours/CPMT/Final/sha256.h
 
+/Users/jeanbaptistetamasleloup/Documents/Cours/CPMT/Final/Blockchain.cpp
+Blockchain.h
+/Users/jeanbaptistetamasleloup/Documents/Cours/CPMT/Final/Blockchain.h
+
 /Users/jeanbaptistetamasleloup/Documents/Cours/CPMT/Final/Blockchain.h
 cstdint
 -
@@ -23,10 +33,6 @@ vector
 -
 Block.h
 /Users/jeanbaptistetamasleloup/Documents/Cours/CPMT/Final/Block.h
-
-/Users/jeanbaptistetamasleloup/Documents/Cours/CPMT/Final/Cryptography.cpp
-Cryptography.h
-/Users/jeanbaptistetamasleloup/Documents/Cours/CPMT/Final/Cryptography.h
 
 /Users/jeanbaptistetamasleloup/Documents/Cours/CPMT/Final/Cryptography.h
 Helper.h
@@ -46,6 +52,10 @@ stdlib.h
 vector
 -
 
+/Users/jeanbaptistetamasleloup/Documents/Cours/CPMT/Final/NamespaceDisplay.h
+User.h
+/Users/jeanbaptistetamasleloup/Documents/Cours/CPMT/Final/User.h
+
 /Users/jeanbaptistetamasleloup/Documents/Cours/CPMT/Final/User.cpp
 User.h
 /Users/jeanbaptistetamasleloup/Documents/Cours/CPMT/Final/User.h
@@ -59,8 +69,8 @@ sha256.h
 /Users/jeanbaptistetamasleloup/Documents/Cours/CPMT/Final/sha256.h
 
 /Users/jeanbaptistetamasleloup/Documents/Cours/CPMT/Final/main.cpp
-User.h
-/Users/jeanbaptistetamasleloup/Documents/Cours/CPMT/Final/User.h
+NamespaceDisplay.h
+/Users/jeanbaptistetamasleloup/Documents/Cours/CPMT/Final/NamespaceDisplay.h
 
 /Users/jeanbaptistetamasleloup/Documents/Cours/CPMT/Final/sha256.h
 string

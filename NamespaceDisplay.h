@@ -24,7 +24,7 @@ namespace display {
 
     void main_menu() {
         cout << " Main Menu:\n";
-        cout << "\t 1.Mine a new Block\n";
+        cout << "\t 1.Effectuate a transaction\n";
         cout << "\t 2.Get Last Block Data\n";
         cout << "\t 3.Check Keys\n";
         cout << "\t 4.Check Wallet\n";

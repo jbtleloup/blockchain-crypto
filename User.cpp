@@ -1,5 +1,7 @@
 #include "User.h"
 
+Blockchain User::chain;
+
 User::User()
 {
 	setName("");
@@ -28,8 +30,12 @@ void User::setKeys()
 	public_key = user.publicKey;
 	private_key = user.getPrivateKey();
 	user.~Cryptography();
-	CC_Address = sha256(public_key);
-	cout<<public_key<<private_key<<endl;
+    //CC_Address = sha256(public_key);
+
+    //Patch waiting for RSA TODO
+    CC_Address = sha256(name);
+
+	//cout<<public_key<<private_key<<endl;
 }
 
 void User::setName(string Name)
@@ -60,5 +66,14 @@ string User::getCC_Address()
 double User::getWallet()
 {
 	return wallet;
+}
+
+void User::transact(const string &receiver, const int &amount) {
+    //todo data and sender
+    uint32_t index = User::chain.GetLastBlock().getIndex()+1;
+    string sender = this->getCC_Address();
+    string s_amount = to_string(amount);
+    Block nBlock = Block(index, s_amount, receiver, sender);
+    User::chain.AddBlock(nBlock);
 }
 

@@ -103,6 +103,9 @@
 		<Unit filename="/Users/jeanbaptistetamasleloup/Documents/Cours/CPMT/Final/Helper.h">
 			<Option target="Final"/>
 		</Unit>
+		<Unit filename="/Users/jeanbaptistetamasleloup/Documents/Cours/CPMT/Final/NamespaceDisplay.h">
+			<Option target="Final"/>
+		</Unit>
 		<Unit filename="/Users/jeanbaptistetamasleloup/Documents/Cours/CPMT/Final/User.cpp">
 			<Option target="Final"/>
 		</Unit>

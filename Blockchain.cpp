@@ -5,13 +5,12 @@
 #include "Blockchain.h"
 
 Blockchain::Blockchain() {
-    _vChain.emplace_back(Block(0, "Genesis Block"));
+    _vChain.emplace_back(Block(0, "Genesis Block", std::string(), std::string()));
     _nDifficulty = 3;
 }
 
 void Blockchain::AddBlock(Block bNew) {
     bNew.sPrevHash = _GetLastBlock().GetHash();
-    //cout << "time" << _GetLastBlock().get_tTime() << endl;
     bNew.MineBlock(_nDifficulty);
     _vChain.push_back(bNew);
 }
