@@ -51,7 +51,6 @@ void menu(User newUser) {
 
         switch (option) {
             case 1: {
-                //TODO user.send()
                 int amount;
                 string receiver_address;
 

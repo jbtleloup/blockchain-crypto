@@ -77,8 +77,9 @@ void User::transact(const string &receiver, const int &amount) {
     double wallet_before_receiver = this->getWallet();
     double wallet_receiver = wallet_before_receiver + amount;
     this->setWallet(wallet_receiver);
-    mu.unlock();
     User::chain.GetLastBlock().showAll();
+    mu.unlock();
+
 }
 
 
