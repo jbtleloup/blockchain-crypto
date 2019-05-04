@@ -1,6 +1,6 @@
 #include "Blockchain.h"
-#include "Cryptography.h"
 #include "sha256.h"
+#include "RSA_Gen.h"
 
 class User {
 private:

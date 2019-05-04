@@ -22,15 +22,10 @@ User::User(string name, double starting) {
 }
 
 void User::setKeys() {
-    Cryptography user;
-    user._RSA(user.RSA(name));
-    public_key = user.publicKey;
-    private_key = user.getPrivateKey();
-    user.~Cryptography();
-    //CC_Address = sha256(public_key);
-
-    //Patch waiting for RSA TODO
-    CC_Address = sha256(name);
+    RSA_Gen RSA;
+	private_key = RSA.func_main(name);
+	public_key = RSA.func_main(private_key);
+    CC_Address = sha256(public_key);
 
     //cout<<public_key<<private_key<<endl;
 }
