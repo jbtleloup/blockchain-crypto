@@ -27,9 +27,9 @@ time_t Block::get_tTime() const {
 string Block::GetHash() {
     return _sHash;
 }
-
+//mine the block using sha256
 void Block::MineBlock(uint32_t nDifficulty) {
-	char cstr[nDifficulty+1];
+    char cstr[nDifficulty + 1];
     for (uint32_t i = 0; i < nDifficulty; ++i) {
         cstr[i] = '0';
     }
@@ -45,6 +45,7 @@ void Block::MineBlock(uint32_t nDifficulty) {
     cout << "Block mined: " << _sHash << endl;
 }
 
+
 inline string Block::_CalculateHash() const {
     stringstream ss;
     ss << _nIndex << _tTime << _sData << _receiver << _sender << _nNonce << sPrevHash;
@@ -52,18 +53,17 @@ inline string Block::_CalculateHash() const {
     return sha256(ss.str());
 }
 
-void Block::showAll()
-{
-	cout << "Index: " << _nIndex << endl
-		<< "Receiver: " << _receiver << endl
-		<< "Sender: " << _sender << endl
-		<< "Nonce: " << _nNonce << endl
-		<< "Data: " << _sData << endl
-		<< "Hash: " << _sHash << endl
-		<< "Timestamp: " << _tTime << endl;
+//display content of the block
+void Block::showAll() {
+    cout << "Index: " << _nIndex << endl
+         << "Receiver: " << _receiver << endl
+         << "Sender: " << _sender << endl
+         << "Nonce: " << _nNonce << endl
+         << "Data: " << _sData << endl
+         << "Hash: " << _sHash << endl
+         << "Timestamp: " << _tTime << endl;
 }
 
-uint32_t Block::getIndex()
-{
-	return _nIndex;
+uint32_t Block::getIndex() {
+    return _nIndex;
 }

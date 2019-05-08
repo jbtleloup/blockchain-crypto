@@ -1,6 +1,10 @@
 //
 // Created by Jean baptiste Tamas leloup on 2019-04-25.
 //
+/*
+ * Only display cout in this file
+ *
+ * */
 
 #ifndef FINAL_NAMESPACEDISPLAY_H
 #define FINAL_NAMESPACEDISPLAY_H

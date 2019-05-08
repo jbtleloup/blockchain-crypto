@@ -6,7 +6,7 @@
 
 Blockchain::Blockchain() {
     _vChain.emplace_back(Block(0, "Genesis Block", std::string(), std::string()));
-    _nDifficulty = 5;
+    _nDifficulty = 5; //number of zero in nunce
 }
 
 void Blockchain::AddBlock(Block bNew) {

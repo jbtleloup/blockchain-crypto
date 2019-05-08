@@ -1,13 +1,16 @@
 #include "NamespaceDisplay.h"
 #include <thread>
+#include <math.h>
+
 
 vector<User> users;
 static const string alpha = "abcdefghijklmonpqrstuvwxyz";
 static const int num_threads = 10;
 static const int nb_users = 10;
 static const int MAX_ITERATIONS = 10000;
-mutex m;
+mutex mut;
 
+/*Test if the Address exist*/
 const bool verify_address(const string &address) {
     bool exist = false;
     for (auto &i : users) {
@@ -18,6 +21,7 @@ const bool verify_address(const string &address) {
     return exist;
 }
 
+/*initialize first time user*/
 void init_user(User newUser) {
     string name;
     double money;
@@ -40,7 +44,7 @@ void init_user(User newUser) {
         newUser.setName(name);
 
 }
-
+/*display a menu for user*/
 void menu(User newUser) {
 
     int option = 0;
@@ -85,22 +89,24 @@ void menu(User newUser) {
     } while (option != 5);
 }
 
+/*put thread to sleep*/
 void threadSleep(int tid) {
 
-    m.lock();
+    mut.lock();
     std::cout << "thread " << tid << " sleeping...\n";
 
     std::this_thread::sleep_for(std::chrono::milliseconds(10));
-    m.unlock();
+    mut.unlock();
 }
 
 int main() {
 
-
     //reserve the space
     users.reserve(nb_users);
+    srand(time(NULL));
 
-    //create first user
+
+    //create first user, uncomment if manual user creation wanted
     /*User user1;
     users.push_back(user1);
     User user2 = User("John Doe", 123);
@@ -112,8 +118,9 @@ int main() {
     //display menu
     //menu(user1);
 
-    //initialize users for threads
-    const int MAX_NAME_LENGTH = 7;
+    //initialize users for threads, comment if manual user wanted
+    //creates 10 users with random names
+    const int MAX_NAME_LENGTH = 12;
     const int MAX_WALLET_AMOUNT = 500;
     for (int i = 0; i < nb_users; i++) {
         string user_name;
@@ -123,13 +130,11 @@ int main() {
             char letter = alpha[index];
             user_name += letter;
         }
-        cout<<user_name<<endl;
         double wallet = rand() % MAX_WALLET_AMOUNT;
-        users.emplace_back(User(user_name,wallet));
+        users.emplace_back(User(user_name, wallet));
     }
-
+    //create threads to go along users
     thread t[num_threads];
-    srand(time(NULL));
     int it = 0;
     int sleeping_thread = 0;
 
@@ -137,7 +142,7 @@ int main() {
 
         sleeping_thread = rand() % num_threads + 1;
 
-        //Launch a group of threads
+        //Launch a group of threads and do transactions
         for (unsigned i = 0; i < num_threads; ++i) {
 
             if (i == sleeping_thread) {
@@ -146,9 +151,9 @@ int main() {
                 User temp = users.at(i);
 
                 int index_receiver = rand() % nb_users;
-                string address_receiver = users.at((unsigned)index_receiver).getCC_Address();
-                int amount = rand() % (int)round(temp.getWallet());
-                t[i] = thread(&User::transact,temp,address_receiver,amount);
+                string address_receiver = users.at((unsigned) index_receiver).getCC_Address();
+                int amount = rand() % (int) round(temp.getWallet());
+                t[i] = thread(&User::transact, temp, address_receiver, amount);
             }
         }
 

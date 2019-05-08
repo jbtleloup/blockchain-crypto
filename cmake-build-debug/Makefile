@@ -177,33 +177,6 @@ Blockchain.cpp.s:
 	$(MAKE) -f CMakeFiles/Final.dir/build.make CMakeFiles/Final.dir/Blockchain.cpp.s
 .PHONY : Blockchain.cpp.s
 
-Cryptography.o: Cryptography.cpp.o
-
-.PHONY : Cryptography.o
-
-# target to build an object file
-Cryptography.cpp.o:
-	$(MAKE) -f CMakeFiles/Final.dir/build.make CMakeFiles/Final.dir/Cryptography.cpp.o
-.PHONY : Cryptography.cpp.o
-
-Cryptography.i: Cryptography.cpp.i
-
-.PHONY : Cryptography.i
-
-# target to preprocess a source file
-Cryptography.cpp.i:
-	$(MAKE) -f CMakeFiles/Final.dir/build.make CMakeFiles/Final.dir/Cryptography.cpp.i
-.PHONY : Cryptography.cpp.i
-
-Cryptography.s: Cryptography.cpp.s
-
-.PHONY : Cryptography.s
-
-# target to generate assembly for a file
-Cryptography.cpp.s:
-	$(MAKE) -f CMakeFiles/Final.dir/build.make CMakeFiles/Final.dir/Cryptography.cpp.s
-.PHONY : Cryptography.cpp.s
-
 User.o: User.cpp.o
 
 .PHONY : User.o
@@ -300,9 +273,6 @@ help:
 	@echo "... Blockchain.o"
 	@echo "... Blockchain.i"
 	@echo "... Blockchain.s"
-	@echo "... Cryptography.o"
-	@echo "... Cryptography.i"
-	@echo "... Cryptography.s"
 	@echo "... User.o"
 	@echo "... User.i"
 	@echo "... User.s"

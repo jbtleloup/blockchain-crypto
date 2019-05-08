@@ -1,4 +1,5 @@
 #include "User.h"
+#include "RSA_Gen.h"
 
 Blockchain User::chain;
 mutex mu;
@@ -20,14 +21,13 @@ User::User(string name, double starting) {
     setWallet(starting);
     setKeys();
 }
-
+//initialize keys
 void User::setKeys() {
     RSA_Gen RSA;
-	private_key = RSA.func_main(name);
-	public_key = RSA.func_main(private_key);
+    private_key = RSA.func_main(name);
+    public_key = RSA.func_main(private_key);
     CC_Address = sha256(public_key);
 
-    //cout<<public_key<<private_key<<endl;
 }
 
 void User::setName(string Name) {
@@ -53,7 +53,7 @@ string User::getCC_Address() {
 double User::getWallet() {
     return wallet;
 }
-
+//where the transaction between users happen
 void User::transact(const string &receiver, const int &amount) {
     mu.lock();
     uint32_t index = User::chain.GetLastBlock().getIndex() + 1;
@@ -61,7 +61,7 @@ void User::transact(const string &receiver, const int &amount) {
     string s_amount = to_string(amount);
 
     Block nBlock = Block(index, s_amount, receiver, sender);
-
+    //add the block
     User::chain.AddBlock(nBlock);
     //set the new amount in wallet for sender
     double wallet_before_sender = this->getWallet();

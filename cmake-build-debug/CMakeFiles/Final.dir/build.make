@@ -83,22 +83,9 @@ CMakeFiles/Final.dir/Blockchain.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Final.dir/Blockchain.cpp.s"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/jeanbaptistetamasleloup/Documents/Cours/CPMT/Final/Blockchain.cpp -o CMakeFiles/Final.dir/Blockchain.cpp.s
 
-CMakeFiles/Final.dir/Cryptography.cpp.o: CMakeFiles/Final.dir/flags.make
-CMakeFiles/Final.dir/Cryptography.cpp.o: ../Cryptography.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/jeanbaptistetamasleloup/Documents/Cours/CPMT/Final/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Final.dir/Cryptography.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Final.dir/Cryptography.cpp.o -c /Users/jeanbaptistetamasleloup/Documents/Cours/CPMT/Final/Cryptography.cpp
-
-CMakeFiles/Final.dir/Cryptography.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Final.dir/Cryptography.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/jeanbaptistetamasleloup/Documents/Cours/CPMT/Final/Cryptography.cpp > CMakeFiles/Final.dir/Cryptography.cpp.i
-
-CMakeFiles/Final.dir/Cryptography.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Final.dir/Cryptography.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/jeanbaptistetamasleloup/Documents/Cours/CPMT/Final/Cryptography.cpp -o CMakeFiles/Final.dir/Cryptography.cpp.s
-
 CMakeFiles/Final.dir/main.cpp.o: CMakeFiles/Final.dir/flags.make
 CMakeFiles/Final.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/jeanbaptistetamasleloup/Documents/Cours/CPMT/Final/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Final.dir/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/jeanbaptistetamasleloup/Documents/Cours/CPMT/Final/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Final.dir/main.cpp.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Final.dir/main.cpp.o -c /Users/jeanbaptistetamasleloup/Documents/Cours/CPMT/Final/main.cpp
 
 CMakeFiles/Final.dir/main.cpp.i: cmake_force
@@ -111,7 +98,7 @@ CMakeFiles/Final.dir/main.cpp.s: cmake_force
 
 CMakeFiles/Final.dir/sha256.cpp.o: CMakeFiles/Final.dir/flags.make
 CMakeFiles/Final.dir/sha256.cpp.o: ../sha256.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/jeanbaptistetamasleloup/Documents/Cours/CPMT/Final/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Final.dir/sha256.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/jeanbaptistetamasleloup/Documents/Cours/CPMT/Final/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Final.dir/sha256.cpp.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Final.dir/sha256.cpp.o -c /Users/jeanbaptistetamasleloup/Documents/Cours/CPMT/Final/sha256.cpp
 
 CMakeFiles/Final.dir/sha256.cpp.i: cmake_force
@@ -124,7 +111,7 @@ CMakeFiles/Final.dir/sha256.cpp.s: cmake_force
 
 CMakeFiles/Final.dir/User.cpp.o: CMakeFiles/Final.dir/flags.make
 CMakeFiles/Final.dir/User.cpp.o: ../User.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/jeanbaptistetamasleloup/Documents/Cours/CPMT/Final/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/Final.dir/User.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/jeanbaptistetamasleloup/Documents/Cours/CPMT/Final/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Final.dir/User.cpp.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Final.dir/User.cpp.o -c /Users/jeanbaptistetamasleloup/Documents/Cours/CPMT/Final/User.cpp
 
 CMakeFiles/Final.dir/User.cpp.i: cmake_force
@@ -139,7 +126,6 @@ CMakeFiles/Final.dir/User.cpp.s: cmake_force
 Final_OBJECTS = \
 "CMakeFiles/Final.dir/Block.cpp.o" \
 "CMakeFiles/Final.dir/Blockchain.cpp.o" \
-"CMakeFiles/Final.dir/Cryptography.cpp.o" \
 "CMakeFiles/Final.dir/main.cpp.o" \
 "CMakeFiles/Final.dir/sha256.cpp.o" \
 "CMakeFiles/Final.dir/User.cpp.o"
@@ -149,13 +135,12 @@ Final_EXTERNAL_OBJECTS =
 
 Final: CMakeFiles/Final.dir/Block.cpp.o
 Final: CMakeFiles/Final.dir/Blockchain.cpp.o
-Final: CMakeFiles/Final.dir/Cryptography.cpp.o
 Final: CMakeFiles/Final.dir/main.cpp.o
 Final: CMakeFiles/Final.dir/sha256.cpp.o
 Final: CMakeFiles/Final.dir/User.cpp.o
 Final: CMakeFiles/Final.dir/build.make
 Final: CMakeFiles/Final.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/jeanbaptistetamasleloup/Documents/Cours/CPMT/Final/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable Final"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/jeanbaptistetamasleloup/Documents/Cours/CPMT/Final/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable Final"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Final.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
